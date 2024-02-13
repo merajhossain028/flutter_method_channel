@@ -25,3 +25,38 @@ class MainActivity: FlutterActivity(){
         }
     }
 }
+
+//For Java
+/*
+import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.engine.FlutterEngine
+import io.flutter.plugins.GeneratedPluginRegistrant;
+import io.flutter.plugin.common.MethodChannel;
+
+public class MainActivity extends FlutterActivity {
+    private static final String CHANNEL = "toast_android";
+
+    @Override
+    public void configureFlutterEngine(FlutterEngine flutterEngine) {
+        GeneratedPluginRegistrant.registerWith(flutterEngine);
+
+        new MethodChannel(flutterEngine.getDartExecutor().getBinaryMessenger(), CHANNEL)
+                .setMethodCallHandler(
+                        (call, result) -> {
+                            if (call.method.equals("showToast")) {
+                                String message = call.argument("message");
+                                showToast(message);
+                                result.success(null);
+                            } else {
+                                result.notImplemented();
+                            }
+                        }
+                );
+    }
+
+    private void showToast(String message) {
+        // Code to show Toast on Android
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+}
+ */
